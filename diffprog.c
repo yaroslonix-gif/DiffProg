@@ -15,18 +15,10 @@ int main() {
     TreeDump(&tree, "dump", NO_VIEW);
     PrintTreePreorder(&tree, stdout);
 
-    struct bin_tree derivative = {};
-    InitTree(&derivative);
-    derivative.root = Diff(tree.root, 'x');
-    TreeDump(&derivative, "raw derivative", NO_VIEW);
+    WriteDerivativeReportLatex(&tree, 'x', "report.tex");
+    CompileLatexToPdf("report.tex");
 
-    struct bin_tree simplified = {};
-    InitTree(&simplified);
-    simplified.root = Simplify(derivative.root);
-    TreeDump(&simplified, "simplified derivative", NO_VIEW);
-
-
-    PrintTreePreorder(&tree, stdout);
+    //PrintTreePreorder(&tree, stdout);
     SaveTree(&tree);
     TreeDump(&tree, "dump", NO_VIEW);
 

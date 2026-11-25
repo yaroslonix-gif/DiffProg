@@ -411,7 +411,7 @@ void _TreeBasePart(const struct bin_tree* tree, FILE* dump_out, int* have_err) {
     fprintf(dump_out, "  ROOT->NODE%p;\n", tree->root);
 }
 
-void node_colors(const Node* node, const char** color, const char** fill) {
+void _NodeColors(const Node* node, const char** color, const char** fill) {
     switch (node->type) {
         case TYPE_VAL:
             *color = "#008000"; 
@@ -441,7 +441,7 @@ void _DumpSubTree(const Node* node, FILE* dump_out) {
 
     const char* color = NULL;
     const char* fill  = NULL;
-    node_colors(node, &color, &fill);
+    _NodeColors(node, &color, &fill);
     SetDumpNode(dump_out, node, color, fill);
     if (node->left != NULL) {
         fprintf(dump_out, "NODE%p->NODE%p[color = \"#0000b0\", weight = 5, dir = forward, fontcolor = \"#0000b0\"];\n", node, node->left);

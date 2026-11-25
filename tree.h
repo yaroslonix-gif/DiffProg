@@ -107,7 +107,7 @@ void SetDumpNode(FILE* dump_out, const Node* node, const char* color, const char
 
 void _TreeBasePart(const struct bin_tree* tree, FILE* dump_out, int* have_err);
 
-void node_colors(const Node* node, const char** color, const char** fill);
+void _NodeColors(const Node* node, const char** color, const char** fill);
 
 void _DumpSubTree(const Node* node, FILE* dump_out);
 
